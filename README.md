@@ -10,9 +10,10 @@ Some (ill-defined) goals:
 - this might be the wrong data set for this, but ultimately I'd like to do some supervised learning of "albums I like" from different sites (RYM, AV Club, CoS, /mu/?) to try to find out more about my own tastes in music. 
 
 Known issues:
-- I didn't provide a mechanism for scraping information from multi-album reviews, so the behavior of that data is undefined. It's really only a problem for reissued albums (eg, it counts Weezer's Death to False Metal as a 3.5 Best New Reissue because that review is lumped in with Pinkerton).
+- I didn't provide a mechanism for scraping information from multi-album reviews, so the behavior of that data is undefined. It's probably only a problem for reissued albums (eg, it counts Weezer's Death to False Metal as a 3.5 Best New Reissue because that review is lumped in with Pinkerton). I guess I'm reluctant to do this because multi-album reviews have one url for several albums, and in a few places I use the review url as a unique identifier for an album so I'd need to change a bunch of stuff.
 - Genres are stored in the db as a single string, eg 'RapPop/R&BElectronic' contains ('Rap', 'Pop/R&B', 'Electronic'). I'm looking into a better way of grouping them.
 - My data set only goes up to November 2016. After making sure my old scripts are 3.4-compliant I plan on keeping the db up to date with new reviews.
+- I should probably update my filenames to a more Pythonic naming convention.
 
 ## p4k.py \ p4k,db.py
 I used `BeautifulSoup` to scrape information from all the reviews, and wrote that info to a Postgresql database.
